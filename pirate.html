@@ -149,50 +149,7 @@
         document.getElementById("penalty").textContent="Penalty is 0";
         document.getElementById("help").textContent="Click for help";
 
-        let r1,r2,r3;
-        function bonus(){
-            r1=Math.floor(Math.random()*24);
-            
-            console.log(r1);
-            r2=Math.floor(Math.random()*24);
-            console.log(r2);
-            r3=Math.floor(Math.random()*24);
-            console.log(r3);
-            lastCheck=r3;
-            catLocation=r1;
-            mouseLocation=r2;
-            bonus=0;
-            penal=0;
-            let lastcol=lastCheck%6;
-            let lastrow=Math.floor(lastCheck/6);
-            let catcol=catLocation%6;
-            let catrow=Math.floor(catLocation/6);
-            let coldiff=Math.abs(lastcol-catcol);
-            let rowdiff=(Math.abs(lastrow-catrow));
-            let ratcol=mouseLocation%6;
-            let ratrow=Math.floor(mouseLocation/6);
-            let ratcoldiff=Math.abs(lastcol-ratcol);
-            let ratrowdiff=(Math.abs(lastrow-ratrow));
-            console.log(rowdiff,coldiff)
-            if(ratrowdiff<=1 && ratcoldiff<=1)
-            {
-                document.getElementById("help").innerHTML="squeek"
-                penal+=2;
-                penalty.innerHTML="Penalty is "+penal;
-            }
-            else if(rowdiff<=1 && coldiff<=1)
-            {
-                document.getElementById("help").innerHTML="Meow"
-                penal+=2;
-                penalty.innerHTML="Penalty is "+penal;
-            }
-            else{
-                document.getElementById("help").innerHTML="sorry, no help available"
-                penal+=2;
-                penalty.innerHTML="Penalty is "+penal;
-            }
-        }
-
+       
     
       </script>
     </body>
