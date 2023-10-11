@@ -21,7 +21,7 @@
         <h1>Find the treasure by Sambhavi</h1>
         <p style="font-size: 20px ;" >Click on the locations to search for treasure, beware the traps</p>
         <div id="locations" style="font-style: italic;">Number of locations checked is zero.</div><br>
-        <div id="penalty" style="color: red;">Penalty is zero.</div>
+        <div id="penalty" style="color: red;">penalty is zero.</div>
         <div style="font-family: 'Courier New', Courier, monospace;" onclick="help()">
             Click for help
         </div>
@@ -30,16 +30,16 @@
         </div>
         <p><button type="button" class="btn btn-primary" onclick="bonus()">Bonus</button></p>
         <div class="container">
-            <div class="locations">
-                <img src="location.jpg" id="img05" alt="starting image" height="200px" width="200px" onclick="check(0)" >
-                <img src="location.jpg" id="img06" alt="starting image" height="200px" width="200px" onclick="check(1)">
-                <img src="location.jpg" id="img07" alt="starting image" height="200px" width="200px" onclick="check(2)">
-                <img src="location.jpg" id="img08" alt="starting image" height="200px" width="200px" onclick="check(3)">
-                <img src="location.jpg" id="img09" alt="starting image" height="200px" width="200px" onclick="check(4)">
+            <div class="location">
+                <img src="location.jpg" id="img00" alt="starting image" height="200px" width="200px" onclick="check(0)" >
+                <img src="location.jpg" id="img01" alt="starting image" height="200px" width="200px" onclick="check(1)">
+                <img src="location.jpg" id="img02" alt="starting image" height="200px" width="200px" onclick="check(2)">
+                <img src="location.jpg" id="img03" alt="starting image" height="200px" width="200px" onclick="check(3)">
+                <img src="location.jpg" id="img04" alt="starting image" height="200px" width="200px" onclick="check(4)">
             </div>
         </div>
         <div class="container">
-            <div class="locations">
+            <div class="location">
                 <img src="location.jpg" id="img05" alt="starting image" height="200px" width="200px" onclick="check(5)" >
                 <img src="location.jpg" id="img06" alt="starting image" height="200px" width="200px" onclick="check(6)">
                 <img src="location.jpg" id="img07" alt="starting image" height="200px" width="200px" onclick="check(7)">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="locations">
+            <div class="location">
                 <img src="location.jpg" id="img10" alt="starting image" height="200px" width="200px" onclick="check(10)">
                 <img src="location.jpg" id="img11" alt="starting image" height="200px" width="200px" onclick="check(11)">
                 <img src="location.jpg" id="img12" alt="starting image" height="200px" width="200px" onclick="check(12)">
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="locations">
+            <div class="location">
                 <img src="location.jpg" id="img15" alt="starting image" height="200px" width="200px" onclick="check(15)">
                 <img src="location.jpg" id="img16" alt="starting image" height="200px" width="200px" onclick="check(16)">
                 <img src="location.jpg" id="img17" alt="starting image" height="200px" width="200px" onclick="check(17)">
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="locations">
+            <div class="location">
                 <img src="location.jpg" id="img20" alt="starting image" height="200px" width="200px" onclick="check(20)">
                 <img src="location.jpg" id="img21" alt="starting image" height="200px" width="200px" onclick="check(21)">
                 <img src="location.jpg" id="img22" alt="starting image" height="200px" width="200px" onclick="check(22)">
@@ -75,17 +75,20 @@
             </div>
         </div>
         <script>
-             let ids=['img00','img01','img02','img03','img04','img05','img10','img11','img12','img13','img14','img15','img20','img21','img22','img23','img24']
+             var ids=["img00","img01","img02","img03","img04","img05","img06","img07","img08","img09","img10","img11","img12","img13","img14","img15","img16","img17","img18","img19","img20","img21","img22","img23","img24"]
              let checkCount=0
              let penalty=0
              let lastCheck=0
              let treasureLocation=5
              let trapLocation=18
              let gameOver=false
+            
              function check(position){
+                
                 var imgId = ids[position];
+
                 if(position == treasureLocation){
-				    document.getElementById(imgId).src = "Treasure.jgp";
+				    document.getElementById(imgId).src = "Treasure.jpg";
 				    gameOver = true;
 				    penalty -= 4;
 
@@ -95,13 +98,14 @@
 				    gameOver = true;
 				    penalty += 3;
 			    }
-			else
-				document.getElementById(imgId).src = "location.jpg";
+			else{
+				document.getElementById(imgId).src = "pirate.jpg";
+            }
 
-			checkCount++;
+            checkCount++;
 			penalty++;
-			document.getElementById("location").innerHTML = "Number of locations checked is " + checkCount + ".";
-			document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
+			document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount + ".";
+			document.getElementById("penalty").innerHTML = "penalty is " + penalty + ".";
 			lastCheck = position;
 		} 
         let row=0;
@@ -110,33 +114,42 @@
         let col1=0;
         let col=0;
         let col2=0;
-        function help() {
-            console.log("hi")
-             let lastcol = lastCheck % 5;
-            let lastrow = Math.floor(lastCheck / 5);
-            let trapcol = trapLocation % 5;
-            let traprow = Math.floor(trapLocation / 5);
-            let coldiff = Math.abs(lastcol - trapcol);
-            let rowdiff = (Math.abs(lastrow - traprow));
-            let treasurecol = treasureLocation % 5;
-            let treasurerow = Math.floor(treasureLocation / 5);
-            let treasurecoldiff = Math.abs(lastcol - treasurecol);
-            let treasurerowdiff = (Math.abs(lastrow - treasurerow));
-            console.log(rowdiff, coldiff)
-            if (treasurerowdiff <= 1 && treasurecoldiff <= 1) {
-                document.getElementById("help").innerHTML = "Can smell it";
-                penalty += 2;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
-            } else if (rowdiff <= 1 && coldiff <= 1) {
-                document.getElementById("help").innerHTML = "Close Matie";
-                penalty += 2;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
-            } else {
-                 document.getElementById("help").innerHTML = "Step Faster";
-                penalty += 2;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
-            }
+        function help()
+        {
+       
+         if(gameOver){
+             return;
         }
+
+        let treasureRow =Math.floor(treasureLocation/5);
+        let treasureCol=treasureLocation%5;
+        let lastRow = Math.floor(lastCheck/5);
+        let lastCol=lastCheck%5;
+        let rowDiff=Math.abs(treasureRow-lastRow);
+ 	    let colDiff=Math.abs(treasureCol-lastCol);
+        if((rowDiff===1 && colDiff===0)||(rowDiff===0 && colDiff===1))
+        {
+             document.getElementById('help').textContent='Can smell it';
+        }
+
+        else if(rowDiff+colDiff===2)
+	    {
+            document.getElementById('help').textContent='Close Matie';
+        }
+
+        else{
+             document.getElementById('help').textContent='Step Faster';
+            }
+
+        penalty=penalty+2;
+        document.getElementById('penalty').textContent="Penalty is "+penalty;
+        document.getElementById('help').textContent=text;
+    }
+        document.getElementById("locations").textContent="Number of locations checked is 0";
+        document.getElementById("penalty").textContent="Penalty is 0";
+        document.getElementById("help").textContent="Click for help";
+
+    
       </script>
     </body>
 
