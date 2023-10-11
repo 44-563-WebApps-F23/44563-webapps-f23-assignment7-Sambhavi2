@@ -1,47 +1,143 @@
 <!DOCTYPE html>
 <html>
-    ><head>>
+    <head>>
         <title>Lab07</title>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                text-align: center;
-            }
-    
-            h1 {
-                color: #009688;
-            }
-    
-            p {
-                font-size: 18px;
-            }
-           
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 
-        #locations {
-            font-weight: bold;
-        }
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-        #penalty {
-            color: red;
-        }
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
 
-    </style>
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     </head>
     <body>
         <h1>Find the treasure by Sambhavi</h1>
-        <p>Click on the locations to search for treasure, beware the traps</p>
-        <div id="locations">Number of locations checked is zero.</div><br>
-        <div id="penalty">Penalty is zero.</div>
-        <p>Click for help.</p>
-        <div id="help">Help report</div>
-        <div class="row">
-            <div class="location" style="background-image: url('location_image.jpg');"></div>
-            <div class="location" style="background-image: url('treasure_image.jpg');"></div>
-            <div class="location" style="background-image: url('trap_image.jpg');"></div>
-            <div class="location" style="background-image: url('pirate_image.jpg');"></div>
+        <p style="font-size: 20px ;" >Click on the locations to search for treasure, beware the traps</p>
+        <div id="locations" style="font-style: italic;">Number of locations checked is zero.</div><br>
+        <div id="penalty" style="color: red;">Penalty is zero.</div>
+        <div style="font-family: 'Courier New', Courier, monospace;" onclick="help()">
+            Click for help
         </div>
+        <div id="help">
+            Help report
+        </div>
+        <p><button type="button" class="btn btn-primary" onclick="bonus()">Bonus</button></p>
+        <div class="container">
+            <div class="locations">
+                <img src="location.jpg" id="img05" alt="starting image" height="200px" width="200px" onclick="check(0)" >
+                <img src="location.jpg" id="img06" alt="starting image" height="200px" width="200px" onclick="check(1)">
+                <img src="location.jpg" id="img07" alt="starting image" height="200px" width="200px" onclick="check(2)">
+                <img src="location.jpg" id="img08" alt="starting image" height="200px" width="200px" onclick="check(3)">
+                <img src="location.jpg" id="img09" alt="starting image" height="200px" width="200px" onclick="check(4)">
+            </div>
+        </div>
+        <div class="container">
+            <div class="locations">
+                <img src="location.jpg" id="img05" alt="starting image" height="200px" width="200px" onclick="check(5)" >
+                <img src="location.jpg" id="img06" alt="starting image" height="200px" width="200px" onclick="check(6)">
+                <img src="location.jpg" id="img07" alt="starting image" height="200px" width="200px" onclick="check(7)">
+                <img src="location.jpg" id="img08" alt="starting image" height="200px" width="200px" onclick="check(8)">
+                <img src="location.jpg" id="img09" alt="starting image" height="200px" width="200px" onclick="check(9)">
+            </div>
+        </div>
+        <div class="container">
+            <div class="locations">
+                <img src="location.jpg" id="img10" alt="starting image" height="200px" width="200px" onclick="check(10)">
+                <img src="location.jpg" id="img11" alt="starting image" height="200px" width="200px" onclick="check(11)">
+                <img src="location.jpg" id="img12" alt="starting image" height="200px" width="200px" onclick="check(12)">
+                <img src="location.jpg" id="img13" alt="starting image" height="200px" width="200px" onclick="check(13)">
+                <img src="location.jpg" id="img14" alt="starting image" height="200px" width="200px" onclick="check(14)">
+            </div>
+        </div>
+        <div class="container">
+            <div class="locations">
+                <img src="location.jpg" id="img15" alt="starting image" height="200px" width="200px" onclick="check(15)">
+                <img src="location.jpg" id="img16" alt="starting image" height="200px" width="200px" onclick="check(16)">
+                <img src="location.jpg" id="img17" alt="starting image" height="200px" width="200px" onclick="check(17)">
+                <img src="location.jpg" id="img18" alt="starting image" height="200px" width="200px" onclick="check(18)">
+                <img src="location.jpg" id="img19" alt="starting image" height="200px" width="200px" onclick="check(19)">
+            </div>
+        </div>
+        <div class="container">
+            <div class="locations">
+                <img src="location.jpg" id="img20" alt="starting image" height="200px" width="200px" onclick="check(20)">
+                <img src="location.jpg" id="img21" alt="starting image" height="200px" width="200px" onclick="check(21)">
+                <img src="location.jpg" id="img22" alt="starting image" height="200px" width="200px" onclick="check(22)">
+                <img src="location.jpg" id="img23" alt="starting image" height="200px" width="200px" onclick="check(23)">
+                <img src="location.jpg" id="img24" alt="starting image" height="200px" width="200px" onclick="check(24)">
+            </div>
+        </div>
+        <script>
+             let ids=['img00','img01','img02','img03','img04','img05','img10','img11','img12','img13','img14','img15','img20','img21','img22','img23','img24']
+             let checkCount=0
+             let penalty=0
+             let lastCheck=0
+             let treasureLocation=5
+             let trapLocation=18
+             let gameOver=false
+             function check(position){
+                var imgId = ids[position];
+                if(position == treasureLocation){
+				    document.getElementById(imgId).src = "Treasure.jgp";
+				    gameOver = true;
+				    penalty -= 4;
+
+			    }   
+			    else if(position == trapLocation){
+				    document.getElementById(imgId).src = "trap.jpg";
+				    gameOver = true;
+				    penalty += 3;
+			    }
+			else
+				document.getElementById(imgId).src = "location.jpg";
+
+			checkCount++;
+			penalty++;
+			document.getElementById("location").innerHTML = "Number of locations checked is " + checkCount + ".";
+			document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
+			lastCheck = position;
+		} 
+        let row=0;
+        let row1=0;
+        let row2=0
+        let col1=0;
+        let col=0;
+        let col2=0;
+        function help() {
+            console.log("hi")
+             let lastcol = lastCheck % 5;
+            let lastrow = Math.floor(lastCheck / 5);
+            let trapcol = trapLocation % 5;
+            let traprow = Math.floor(trapLocation / 5);
+            let coldiff = Math.abs(lastcol - trapcol);
+            let rowdiff = (Math.abs(lastrow - traprow));
+            let treasurecol = treasureLocation % 5;
+            let treasurerow = Math.floor(treasureLocation / 5);
+            let treasurecoldiff = Math.abs(lastcol - treasurecol);
+            let treasurerowdiff = (Math.abs(lastrow - treasurerow));
+            console.log(rowdiff, coldiff)
+            if (treasurerowdiff <= 1 && treasurecoldiff <= 1) {
+                document.getElementById("help").innerHTML = "Can smell it";
+                penalty += 2;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+            } else if (rowdiff <= 1 && coldiff <= 1) {
+                document.getElementById("help").innerHTML = "Close Matie";
+                penalty += 2;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+            } else {
+                 document.getElementById("help").innerHTML = "Step Faster";
+                penalty += 2;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+            }
+        }
+      </script>
     </body>
 
 </html>
